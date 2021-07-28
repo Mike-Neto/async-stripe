@@ -1,3 +1,7 @@
+# Changes On this branch
+
+* Added https://stripe.com/docs/api/payment_methods/detach API
+
 # async-stripe
 
 ![CI](https://github.com/arlyon/stripe-rs/workflows/CI/badge.svg)

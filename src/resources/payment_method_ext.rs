@@ -12,6 +12,14 @@ pub struct AttachPaymentMethod {
     pub customer: CustomerId,
 }
 
+/// The parameters for `PaymentMethod::attach`
+///
+/// For more details see <https://stripe.com/docs/api/payment_methods/detach>.
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct DetachPaymentMethod {
+    pub customer: CustomerId,
+}
+
 impl PaymentMethod {
     /// Attach a payment method to a customer
     ///
@@ -22,5 +30,16 @@ impl PaymentMethod {
         params: AttachPaymentMethod,
     ) -> Response<PaymentMethod> {
         client.post_form(&format!("/payment_methods/{}/attach", payment_method_id), params)
+    }
+
+    /// Attach a payment method to a customer
+    ///
+    /// For more details see <https://stripe.com/docs/api/payment_methods/detach>.
+    pub fn detach(
+        client: &Client,
+        payment_method_id: &PaymentMethodId,
+        params: DetachPaymentMethod,
+    ) -> Response<PaymentMethod> {
+        client.post_form(&format!("/payment_methods/{}/detach", payment_method_id), params)
     }
 }
