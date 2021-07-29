@@ -38,8 +38,7 @@ impl PaymentMethod {
     pub fn detach(
         client: &Client,
         payment_method_id: &PaymentMethodId,
-        params: DetachPaymentMethod,
     ) -> Response<PaymentMethod> {
-        client.post_form(&format!("/payment_methods/{}/detach", payment_method_id), params)
+        client.post(&format!("/payment_methods/{}/detach", payment_method_id))
     }
 }
