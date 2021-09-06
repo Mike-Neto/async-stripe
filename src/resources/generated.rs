@@ -29,6 +29,7 @@ pub mod core {
     pub mod setup_intent;
     pub mod tax_deducted_at_source;
     pub mod token;
+    pub mod usage_record;
 }
 
 #[path = "generated"]

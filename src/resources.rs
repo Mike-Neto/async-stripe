@@ -28,6 +28,7 @@ mod payment {
     pub mod bank_account_ext;
     pub mod card;
     pub mod payment_method_ext;
+    pub mod usage_ext;
     pub mod source_ext;
 }
 
@@ -104,6 +105,7 @@ pub use {
         setup_intent::*,
         tax_deducted_at_source::*,
         token::*,
+        usage_record::*,
     },
 
     payment::{

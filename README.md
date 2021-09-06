@@ -1,6 +1,7 @@
 # Changes On this branch
 
 * Added https://stripe.com/docs/api/payment_methods/detach API
+* Added https://stripe.com/docs/api/usage_records/create API
 
 # async-stripe
 

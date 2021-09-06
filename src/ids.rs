@@ -531,6 +531,7 @@ def_id!(SubscriptionId, "sub_");
 def_id!(SubscriptionItemId, "si_");
 def_id!(SubscriptionLineId, "sli_");
 def_id!(SubscriptionScheduleId, "sub_sched_");
+def_id!(UsageRecordId, "mbur_");
 def_id!(TaxIdId, "txi_");
 def_id!(TaxRateId, "txr_");
 def_id!(
