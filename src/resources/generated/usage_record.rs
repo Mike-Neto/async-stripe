@@ -2,7 +2,8 @@
 // This file was automatically generated.
 // ======================================
 
-use crate::ids::{UsageRecordId};
+use crate::config::{Client, Response};
+use crate::ids::{UsageRecordId, SubscriptionItemId};
 use crate::params::{Object, Timestamp};
 use serde_derive::{Deserialize, Serialize};
 
@@ -25,6 +26,26 @@ pub struct UsageRecord {
 
     /// The timestamp when this usage occurred.
     pub timestamp: Timestamp,
+}
+
+#[derive(Clone, Debug, Default, Serialize)]
+pub struct CreateUsageRecord {
+    pub quantity: u64,
+    pub timestamp: Timestamp,
+    /// Can be either set or increment
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub action: Option<String>,
+}
+
+impl UsageRecord {
+    /// Creates a usage record.
+    pub fn create(
+        client: &Client,
+        subscription_id: &SubscriptionItemId,
+        params: CreateUsageRecord,
+    ) -> Response<UsageRecord> {
+        client.post_form(&format!("/subscription_items/{}/usage_records", subscription_id), params)
+    }
 }
 
 impl Object for UsageRecord {
